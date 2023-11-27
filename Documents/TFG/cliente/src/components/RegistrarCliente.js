@@ -125,7 +125,7 @@ export default function RegistrarCliente() {
           "Content-Type": "application/json",
         },
       });
-
+      //Para mostrar por consola
       const data = await res.json();
       setCargando(false);
       navigate("/");
@@ -157,7 +157,12 @@ export default function RegistrarCliente() {
       <Card
         sx={{ mt: 3 }}
         style={{
-          padding: "1rem",
+          mt: 3,
+          padding: "2rem",
+          maxWidth: 400,
+          margin: "auto",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          borderRadius: 8,
         }}
       >
         <Snackbar
@@ -169,60 +174,75 @@ export default function RegistrarCliente() {
             {errorMessage}
           </Alert>
         </Snackbar>
-        <Typography variant="5" textAlign="center" color="black">
+        <Typography
+          variant="h5"
+          textAlign="center"
+          color="primary"
+          gutterBottom
+        >
           Crear Cuenta
         </Typography>
         <CardContent>
           <form onSubmit={handleSubmit}>
             <TextField
-              variant="filled"
+              variant="outlined"
               label="Nombre"
               sx={{
                 display: "block",
                 margin: ".5rem 0",
               }}
+              margin="normal"
+              fullWidth
               name="nombre"
               onChange={handleChange}
             />
             <TextField
-              variant="filled"
+              variant="outlined"
               label="Apellidos"
               sx={{
                 display: "block",
                 margin: ".5rem 0",
               }}
+              margin="normal"
+              fullWidth
               name="apellidos"
               onChange={handleChange}
             />
             <TextField
-              variant="filled"
+              variant="outlined"
               label="Nombre de usuario"
               sx={{
                 display: "block",
                 margin: ".5rem 0",
               }}
+              fullWidth
+              margin="normal"
               name="usuario"
               onChange={handleChange}
             />
 
             <TextField
-              variant="filled"
+              variant="outlined"
               label="Correo Electrónico"
               sx={{
                 display: "block",
                 margin: ".5rem 0",
               }}
+              fullWidth
+              margin="normal"
               name="correo_electronico"
               onChange={handleChange}
             />
             <TextField
-              variant="filled"
+              variant="outlined"
               label="Número de telefono"
               sx={{
                 display: "block",
                 margin: ".5rem 0",
               }}
               name="telefono"
+              fullWidth
+              margin="normal"
               onChange={handleChange}
             />
 
@@ -235,6 +255,9 @@ export default function RegistrarCliente() {
                 }}
               >
                 <DatePicker
+                  fullWidth
+                  variant="outlined"
+                  margin="normal"
                   label="Fecha de Nacimiento"
                   value={currentDate}
                   onChange={(date) => {
@@ -246,13 +269,15 @@ export default function RegistrarCliente() {
               </DemoContainer>
             </LocalizationProvider>
             <TextField
-              variant="filled"
+              variant="outlined"
               label="Contraseña"
               type={mostrarPass ? "text" : "password"}
               sx={{
                 display: "block",
                 margin: ".5rem 0",
               }}
+              fullWidth
+              margin="normal"
               name="contrasena"
               onChange={handleChange}
               InputProps={{
@@ -266,13 +291,15 @@ export default function RegistrarCliente() {
               }}
             />
             <TextField
-              variant="filled"
+              variant="outlined"
               label="Confirmar Contraseña"
               type={mostrarPass ? "text" : "password"}
               sx={{
                 display: "block",
                 margin: ".5rem 0",
               }}
+              fullWidth
+              margin="normal"
               name="confirmar_contrasena"
               onChange={handleChange}
               InputProps={{
@@ -286,7 +313,13 @@ export default function RegistrarCliente() {
               }}
             />
 
-            <Button variant="contained" color="primary" type="submit">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              fullWidth
+              style={{ marginTop: "1rem" }}
+            >
               {cargando ? (
                 <CircularProgress color="inherit" size={24} />
               ) : (
