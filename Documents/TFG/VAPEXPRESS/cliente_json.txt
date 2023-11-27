@@ -1,0 +1,9 @@
+{
+  "usuario": "mvegmol",
+  "nombre":"Miguel",
+  "contrasena":"1203",
+  "apellidos": "Vega Molina",
+  "telefono":"678867870",
+  "correo_electronico":"mvegmol@alu.upo.es",
+  "fecha_nacimiento":"2002-04-24"
+}
